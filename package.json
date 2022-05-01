@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "cross-env NODE_ENV=production PORT=8080 mocha --timeout 10000 ./tests/**.test.js  --exit",
+    "test": "cross-env PORT=8080 mocha --timeout 10000 ./tests/**.test.js  --exit",
     "coverage": "nyc nyc --reporter=html --reporter=text npm run test"
   },
   "author": "Alain Tresor Uwineza",
