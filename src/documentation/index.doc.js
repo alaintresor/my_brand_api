@@ -95,7 +95,7 @@ tags: [
         }, 
         } 
     },
-    '/api/article/': {
+    '/api/articles/': {
         get: {
         tags: ['Blog'],
         description: 'Get All Blog Articles',
@@ -111,7 +111,7 @@ tags: [
         }, 
       } 
     },
-    '/api/article/{id}': {
+    '/api/articles/{id}': {
       get: {
         security: [],
       tags: ['Blog'],
@@ -133,7 +133,7 @@ tags: [
       }, 
       } 
   },
-  '/api/article/add':{
+  '/api/articles/add':{
     post:{
       tags:['Blog'],
       description:'Create new blog article',
@@ -167,7 +167,7 @@ tags: [
       }, 
     }
   },
-  '/api/article/update/{id}':{
+  '/api/articles/update/{id}':{
     patch:{
       tags:['Blog'],
       description:'Update blog article',
@@ -208,7 +208,7 @@ tags: [
       }, 
     }
   },
-  '/api/article/delete/{id}':{
+  '/api/articles/delete/{id}':{
     delete:{
       tags:['Blog'],
       description:'Delete blog article',
@@ -245,7 +245,7 @@ tags: [
       }, 
     }
   },
-  '/api/article/comment/':{
+  '/api/articles/comment/':{
     post:{
       tags:['Blog'],
       description:'Comment on article blog article',
@@ -280,7 +280,7 @@ tags: [
       }, 
     }
   },
-  '/api/article/like/':{
+  '/api/articles/like/':{
     post:{
       tags:['Blog'],
       description:'Like on article blog article',
