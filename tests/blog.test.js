@@ -61,7 +61,6 @@ describe('Testing Blog routes', () => {
         const article=await chai.request(app).get('/api/articles/')
         const id=article.body[0]._id
         const res=await chai.request(app).get(`/api/articles/${id}`)
-        
         expect(res.status).to.be.equal(200)
         expect(res.body).to.be.a('object')
     }),
