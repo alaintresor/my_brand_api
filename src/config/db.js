@@ -3,6 +3,7 @@ const dotenv =require('dotenv');
 dotenv.config();
 
 // const { MONGO_URL } = process.env;
+console.log("NODE_ENV:"+process.env.NODE_ENV)
 
 exports.dbConnect = () => {
   mongoose
@@ -14,6 +15,6 @@ exports.dbConnect = () => {
 
       useNewUrlParser: true,
     })
-    .then(() => console.log('Connected to DB'));
+    .then(() => {console.log('Connected to DB')});
 };
 // module.exports =dbConnect;
