@@ -42,8 +42,8 @@ tags: [
               },
               example: {
                 username: 'John Doe',
-                email: 'john.doe@gmail.com',
-                password: 'Password@2022',
+                email: 'admin@gmail.com',
+                password: '123456',
               },
             },
           },
@@ -75,8 +75,8 @@ tags: [
                 $ref: '#/components/schemas/User',
               },
               example: {
-                email: 'john.doe@gmail.com',
-                password: 'Password@2022',
+                email: 'admin@gmail.com',
+                password: '123456',
               },
             },
           },
