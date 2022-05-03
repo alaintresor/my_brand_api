@@ -7,8 +7,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "cross-env NODE_ENV=test PORT=8080 mocha --timeout 10000 ./tests/**.test.js  --exit",
-    "coverage": "nyc nyc --reporter=html --reporter=text npm run test",
-    "make-badges": "istanbul-badges-readme"
+    "coverage": "nyc nyc --reporter=html --reporter=text --reporter=json-summary npm run test",
+    "coverage:badge": "coverage-badge-creator"
   },
   "author": "Alain Tresor Uwineza",
   "license": "ISC",
@@ -35,6 +35,7 @@
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
+    "coverage-badge-creator": "^1.0.11",
     "istanbul-badges-readme": "^1.8.1"
   }
 }
