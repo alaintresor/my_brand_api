@@ -7,7 +7,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "cross-env NODE_ENV=test PORT=8080 mocha --timeout 10000 ./tests/**.test.js  --exit",
-    "coverage": "nyc nyc --reporter=html --reporter=text npm run test"
+    "coverage": "nyc nyc --reporter=html --reporter=text npm run test",
+    "make-badges": "istanbul-badges-readme"
   },
   "author": "Alain Tresor Uwineza",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "cloudinary": "^1.29.1",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-async-handler": "^1.2.0",
     "express-fileupload": "^1.3.1",
@@ -27,13 +29,12 @@
     "mocha": "^9.2.2",
     "mongoose": "^6.2.10",
     "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
     "path": "^0.12.7",
     "sinon": "^13.0.2",
-    "swagger-ui-express": "^4.3.0",
-    "dotenv": "^16.0.0",
-    "nyc": "^15.1.0"
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
-    
+    "istanbul-badges-readme": "^1.8.1"
   }
 }
