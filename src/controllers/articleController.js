@@ -24,7 +24,6 @@ exports.createNewArticle = async function (req, res)  {
         const valationResult = await articleSchema.validateAsync(req.body);
         if(req.user.role.toString()=='admin')
         {
-            console.log('here............')
                 const article= new Article({
                     title:valationResult.title,
                     content:valationResult.content,
