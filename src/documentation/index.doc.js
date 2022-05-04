@@ -137,18 +137,35 @@ tags: [
     post:{
       tags:['Blog'],
       description:'Create new blog article',
-      parameters:[
-
-      ],
+    //   parameters:[
+    //   {
+    //   "in":"formData",
+    //   "name":"title",
+    //   "description":"Article title",
+    //   required:true
+    //    },
+    //   {
+    //   "in":"formData",
+    //   "name":"content",
+    //   "description":"Article content",
+    //   required:true
+    //    },
+    //   {
+    //   "in":"form",
+    //   "name":"photo",
+    //   scheme:{
+    //   type: 'string',
+    //   description: "Article image url",
+    //   format: 'binary'
+    // },
+    //   required:true
+    //    },
+    //   ],
       requestBody: {
         content: {
-          'application/json': {
+          'multipart/form-data': {
             schema: {
               $ref: '#/components/schemas/Blog',
-            },
-            example: {
-              title: 'testing blog article title',
-              content: 'testing blog article content',
             },
           },
         },
@@ -396,10 +413,6 @@ tags: [
         type: 'object',
 
         properties: {
-          id: {
-            type: 'string',
-            description: 'The auto-generated id of the user',
-          },
           title: {
             type: 'string',
             description: "Article title",
@@ -408,22 +421,11 @@ tags: [
             type: 'string',
             description: "Article content",
           },
-          imageUrl: {
+          photo: {
             type: 'string',
             description: "Article image url",
-          },
-          postedDate: {
-            type: 'string',
-            description: "Article posted date ",
-          },
-          comments: {
-            type: 'object',
-            description: "Article Comments",
-          },
-          likes: {
-            type: 'object',
-            description: "Article likes",
-          },
+            format: 'binary'
+          }
       },
     },
       Message: {
