@@ -9,7 +9,7 @@ const createNewUser= async(req,res)=>{
         const valationResult = await createUserSchema.validateAsync(req.body);
         const userExist=await User.findOne({email:valationResult.email})
         if(userExist)
-        res.status(400).json({message:"user email already exist"})
+        res.status(400).json({"success":false},{message:"user email already exist"})
         else{
             const salt=await bcrypt.genSalt(10)
             const hashedPassword=await bcrypt.hash(valationResult.password,salt)
@@ -20,7 +20,7 @@ const createNewUser= async(req,res)=>{
             role:'admin'
         })
         user.save()
-        .then(user=>res.status(201).json({
+        .then(user=>res.status(201).json({"success":true},{
             id:user._id,
             username:user.username,
             email:user.email,
@@ -30,7 +30,7 @@ const createNewUser= async(req,res)=>{
         .catch(err=>console.log(err))
     }
     } catch (error) {
-        res.status(400).json(error)
+        res.status(400).json({"success":false},{error})
     }
 }
 
