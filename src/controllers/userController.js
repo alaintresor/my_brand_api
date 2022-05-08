@@ -4,6 +4,7 @@ const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs');
 const { json } = require("express");
 
+console.log(process.env.NODE_ENV)
 const createNewUser= async(req,res)=>{
     try {
         const valationResult = await createUserSchema.validateAsync(req.body);
@@ -17,8 +18,12 @@ const createNewUser= async(req,res)=>{
             username:valationResult.username,
             email:valationResult.email,
             password:hashedPassword,
-            role:'admin'
+            role:'visitor'
         })
+        if(process.env.NODE_ENV=='test')
+        {
+            user.role='admin'
+        }
         user.save()
         .then(user=>res.status(201).json({"success":true,
         "user":{
