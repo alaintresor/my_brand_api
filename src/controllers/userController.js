@@ -31,7 +31,7 @@ const createNewUser= async(req,res)=>{
         .catch(err=>console.log(err))
     }
     } catch (error) {
-        res.status(400).json({"success":false,error})
+        res.status(400).json({"success":false,message:error.message})
     }
 }
 
@@ -58,11 +58,15 @@ const LoginUser=async (req,res)=>{
     }
 }
 
+const getUserInfo=(req,res)=>{
+res.json({"user":req.user})
+}
+
 // generate token 
 const generateToken=(id)=>{
     return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:'30d'})
 }
 
 module.exports={
-    createNewUser,LoginUser
+    createNewUser,LoginUser,getUserInfo
 }
