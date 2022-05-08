@@ -48,18 +48,18 @@ const LoginUser=async (req,res)=>{
       const user=await User.findOne({email})
        if(user && (await bcrypt.compare(password,user.password)))
        {
-           res.json({
+           res.json({"success":true,user:{
             id:user._id,
             username:user.username,
             email:user.email,
             role:user.role,
             token:generateToken(user._id)
-        })
+        }})
        }
-       else res.json({message:"Invalid credation"}).status(400)
+       else res.json({"success":false,message:"Invalid credation"}).status(400)
 
     } catch (error) {
-        res.json({message:error}).status(400)
+        res.json({"success":false,message:error}).status(400)
     }
 }
 
