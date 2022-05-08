@@ -21,6 +21,10 @@ const schema = mongoose.Schema({
 			required:true,
 			ref:"User",
 		},
+		username:{
+			type:String,
+			required:true
+		},
 		comment:{
 			type:String,
 			required:[true,'Please add a comment'],

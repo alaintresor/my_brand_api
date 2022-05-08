@@ -120,6 +120,7 @@ exports.commentingOnArticle=(req,res)=>{
 
     const newComment={
         user_id,
+        username:req.user.username,
         comment,
         postedDate: today
     }
