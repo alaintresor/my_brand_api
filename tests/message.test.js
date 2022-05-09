@@ -36,7 +36,7 @@ describe('Testing message routes',()=>{
     it('should get all messages',async()=>{
        const send= await chai.request(app).post('/api/message/').send(testingMessage)
        const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res= await chai.request(app).get('/api/message/').set('Authorization', token)
         expect(res.status).to.be.equal(200)
         expect(res.body).to.be.a('object')

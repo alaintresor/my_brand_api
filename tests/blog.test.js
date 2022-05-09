@@ -41,14 +41,14 @@ describe('Testing Blog routes', () => {
 	});
     it('should create new blog article.',async()=>{
         const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res=await chai.request(app).post('/api/articles/add').field('title', testingData.title).field('content', testingData.content).attach('photo', path.resolve(__dirname, './mock/him.png')).set('Authorization', token)
         expect(res.status).to.be.equal(200);
         expect(res.body).to.be.a('object')
     })
     it('should get all blog articles.',async()=>{
         const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res1=await chai.request(app).post('/api/articles/add').send(testingData).set('Authorization', token)
         const res=await chai.request(app).get('/api/articles/')
         expect(res.status).to.be.equal(200);
@@ -56,7 +56,7 @@ describe('Testing Blog routes', () => {
     }),
     it('should get one blog article by id',async()=>{
         const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res1=await chai.request(app).post('/api/articles/add').send(testingData).set('Authorization', token)
         const article=await chai.request(app).get('/api/articles/')
         const id=article.body[0]._id
@@ -66,7 +66,7 @@ describe('Testing Blog routes', () => {
     }),
     it('should update blog article',async()=>{
         const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res1=await chai.request(app).post('/api/articles/add').send(testingData).set('Authorization', token)
         const article=await chai.request(app).get('/api/articles/')
         const id=article.body[0]._id
@@ -76,7 +76,7 @@ describe('Testing Blog routes', () => {
     }),
     it('should delete blog article',async()=>{
         const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res1=await chai.request(app).post('/api/articles/add').send(testingData).set('Authorization', token)
         const article=await chai.request(app).get('/api/articles/')
         const id=article.body[0]._id
@@ -86,7 +86,7 @@ describe('Testing Blog routes', () => {
     }),
     it('should comment on blog article',async()=>{
         const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res1=await chai.request(app).post('/api/articles/add').send(testingData).set('Authorization', token)
         const article=await chai.request(app).get('/api/articles/')
         const id=article.body[0]._id
@@ -97,7 +97,7 @@ describe('Testing Blog routes', () => {
     }),
     it('should like on blog article',async()=>{
         const adminSignin=await chai.request(app).post('/api/users/login').send(admin)
-        const token = `Bearer ${adminSignin.body.token}`;
+        const token = `Bearer ${adminSignin.body.user.token}`;
         const res1=await chai.request(app).post('/api/articles/add').send(testingData).set('Authorization', token)
         const article=await chai.request(app).get('/api/articles/')
         const id=article.body[0]._id
