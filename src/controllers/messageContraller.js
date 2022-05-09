@@ -32,7 +32,16 @@ const getAllMessages=async (req,res)=>{
 }
 
 }
+const deleteMessage=(req,res)=>{
+const {id}=req.params
+Message.deleteOne({_id:id})
+.then(result=>{
+    console.log(result)
+    res.status(200).json(result)
+})
+.catch(error=>console.log(error))
+}
 
 module.exports={
-    sendMessage,getAllMessages
+    sendMessage,getAllMessages,deleteMessage
 }

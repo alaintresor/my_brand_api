@@ -4,7 +4,7 @@ const jwt=require('jsonwebtoken')
 const bcrypt=require('bcryptjs');
 const { json } = require("express");
 
-console.log(process.env.NODE_ENV)
+// console.log(process.env.NODE_ENV)
 const createNewUser= async(req,res)=>{
     try {
         const valationResult = await createUserSchema.validateAsync(req.body);
