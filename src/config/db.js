@@ -9,7 +9,7 @@ exports.dbConnect = () => {
     .connect(process.env.NODE_ENV === 'production'
     ? process.env.MONGO_PROD_URL
     : process.env.NODE_ENV === 'test'
-    ? process.env.MONGO_TEST_URL
+    ? "mongodb+srv://alain:kabebe22@cluster0.ax3p6.mongodb.net/my_brand_test?retryWrites=true&w=majority"
     : process.env.MONGO_DEV_URL, {
 
       useNewUrlParser: true,
