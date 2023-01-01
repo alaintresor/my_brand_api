@@ -23,11 +23,6 @@ describe('Testing Auth routes', () => {
 			where: { email: { $not: ['admin@gmail.com'] } },
 		});
 	});
-	after(async () => {
-		// await User.deleteMany({
-		// 	where: { email: { $not: ['admin@gmail.com'] } },
-		// });
-	});
 	it('should register a user.', async () => {
 		const res = await chai.request(app).post('/api/users/register').send(tester);
 		expect(res.status).to.be.equal(201);
